@@ -1,1 +1,1 @@
-web: gunicorn ChatApp.wsgi --log-file -
+web: gunicorn ChatApp.wsgi --log-level=info --log-file -

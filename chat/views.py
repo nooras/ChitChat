@@ -96,7 +96,7 @@ def msg(request):
             if (x.user == y.receiver and [x.user, x.uniqueId] not in unique and x.user != request.user) or (x.user == y.sender and [x.user, x.uniqueId] not in unique and x.user != request.user):
                 print("YYYY",y, y.receiver)
                 unique.append([x.user, x.uniqueId])
-    print(unique)
+    # print(unique)
     context = {
         'msg': msg,
         'identity':identity,
@@ -127,7 +127,7 @@ def idset(request,identity=None):
         except UserId.DoesNotExist:
             receiver = None
         if receiver:
-            print(type(receiver.uniqueId), type(receiver.user.username))
+            # print(type(receiver.uniqueId), type(receiver.user.username))
             request.session['receiver'] = receiver.user.username
             request.session['id'] = receiver.user.id
             #request.session['receiver'] = receiver.user

@@ -14,6 +14,9 @@ import os
 
 import dj_database_url 
 
+import dotenv
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -52,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ChatApp.urls'
@@ -73,8 +76,6 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'ChatApp.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -88,6 +89,14 @@ DATABASES = {
           default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
     )
 }
+
+# dotenv_file = os.path.join(BASE_DIR, ".env")
+# if os.path.isfile(dotenv_file):
+#     dotenv.load_dotenv(dotenv_file)
+
+# # load database from the DATABASE_URL environment variable
+# DATABASES = {}
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # WSGI_APPLICATION = 'ChatApp.wsgi.application'
 
